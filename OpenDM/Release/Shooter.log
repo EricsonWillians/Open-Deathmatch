@@ -1,0 +1,22 @@
+﻿Build started 31/03/2016 12:46:33.
+     1>Project "G:\Insanity\Game Development\C++\Projects\Shooter\Shooter\Shooter.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating "Release\Shooter.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D _MBCS /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt ..\main.cpp
+         main.cpp
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"G:\Insanity\Game Development\C++\Projects\Shooter\Release\Shooter.exe" /NOLOGO lua53.lib SDL2main.lib SDL2.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Release\Shooter.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"G:\Insanity\Game Development\C++\Projects\Shooter\Release\Shooter.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"G:\Insanity\Game Development\C++\Projects\Shooter\Release\Shooter.lib" /MACHINE:X86 Release\main.obj
+         Generating code
+         Finished generating code
+         Shooter.vcxproj -> G:\Insanity\Game Development\C++\Projects\Shooter\Release\Shooter.exe
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"G:\Insanity\Game Development\C++\Projects\Shooter\Release\Shooter.exe;#1" /manifest Release\Shooter.exe.intermediate.manifest
+       FinalizeBuildStatus:
+         Deleting file "Release\Shooter.unsuccessfulbuild".
+         Touching "Release\Shooter.lastbuildstate".
+     1>Done Building Project "G:\Insanity\Game Development\C++\Projects\Shooter\Shooter\Shooter.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:02.52
