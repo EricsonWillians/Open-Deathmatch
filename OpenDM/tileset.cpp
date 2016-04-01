@@ -76,3 +76,34 @@ int Tileset::getTileCount( void ) {
 SDL_Surface* Tileset::getImageSurface( void ) {
 	return this->imageSurface;
 }
+
+std::map<int, SDL_Surface*> Tileset::getTiles( void ) {
+	std::map<int, SDL_Surface*> tiles = std::map<int, SDL_Surface*>();
+	int idCounter = 1;
+	for (int i = 0; i < this->imagewidth; i += this->tilewidth) {
+		for (int j = 0; j < this->imageheight; j += this->tileheight) {
+			const SDL_PixelFormat& fmt = *(this->imageSurface->format);
+			SDL_Surface* tempSurface = SDL_CreateRGBSurface(
+				0, 
+				32, 
+				32, 
+				fmt.BitsPerPixel, 
+				fmt.Rmask, 
+				fmt.Gmask, 
+				fmt.Bmask, 
+				fmt.Amask
+			);
+			SDL_Rect tempRect = { j, i, this->tilewidth, this->tileheight };
+			SDL_BlitSurface( this->imageSurface, &tempRect, tempSurface, NULL );
+			tiles.insert( std::pair<int, SDL_Surface*>( idCounter, tempSurface ) );
+			idCounter++;
+		}
+	}
+	return tiles;
+}
+
+void Tileset::freeTiles( std::map<int, SDL_Surface*>& tiles ) {
+	for ( std::map<int, SDL_Surface*>::iterator iter = tiles.begin(); iter != tiles.end(); ++iter ) {
+		SDL_FreeSurface(iter->second);
+	}
+}

@@ -33,6 +33,8 @@ public:
 	std::map<const char, int> getTileOffset( void );
 	int getTileCount( void );
 	SDL_Surface* getImageSurface( void );
+	std::map<int, SDL_Surface*> getTiles( void );
+	void freeTiles( std::map<int, SDL_Surface*>& tiles );
 };
 
 #endif
