@@ -10,15 +10,15 @@ map = {
   tileheight = 32,
   nextobjectid = 3,
   properties = {},
-  tilesets = {
-    {
+  tilesets = { 
+	{
       name = "terrain_atlas",
       firstgid = 1,
       tilewidth = 32,
       tileheight = 32,
       spacing = 0,
       margin = 0,
-      image = "../../../../Resources/Tilesets/Atlas/terrain_atlas.png",
+      image = "GFX/terrain_atlas.png",
       imagewidth = 1024,
       imageheight = 1024,
       tileoffset = {

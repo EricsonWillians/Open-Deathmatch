@@ -1,15 +1,11 @@
-# include <iostream>
-# include <SDL.h>
-extern "C" {
-# include <lua.h>
-# include <lauxlib.h>
-# include <lualib.h>
-}
-# include <LuaBridge/LuaBridge.h>
-using namespace luabridge;
+#include "OpenDM\main.h"
+#include "OpenDM\tileset.h"
+#include "OpenDM\layer.h"
 
+bool done = false;
 SDL_Window *window = nullptr;
 SDL_Renderer *renderer = nullptr;
+SDL_Event e;
 int screenWidth;
 int screenHeight;
 
@@ -19,10 +15,9 @@ int main(int argc, char *argv[]) {
     luaL_dofile( cfgState, "cfg.lua" );
     luaL_openlibs( cfgState );
     lua_pcall( cfgState, 0, 0, 0 );
-
-	LuaRef v = getGlobal( cfgState, "cfg" );
-	screenWidth = v["SCREEN_WIDTH"];
-	screenHeight = v["SCREEN_HEIGHT"];
+	LuaRef t = getGlobal( cfgState, "cfg" );
+	screenWidth = t["SCREEN_WIDTH"];
+	screenHeight = t["SCREEN_HEIGHT"];
 
 	if ( SDL_Init( SDL_INIT_VIDEO ) != 0 ){
 		std::cout << "SDL_Init Error: " << SDL_GetError() << std::endl;
@@ -44,6 +39,21 @@ int main(int argc, char *argv[]) {
 		return 1;
 	}
 
-	getchar();
+	Tileset ts = Tileset("Maps/first.lua", 1);
+	SDL_Texture* tex = SDL_CreateTextureFromSurface(renderer, ts.getImageSurface());
+	SDL_FreeSurface(ts.getImageSurface());
+
+	while (!done) {
+		while ( SDL_PollEvent( &e ) != 0 ) {
+			if ( e.type == SDL_QUIT ) {
+				done = true;
+			}
+		 }
+		SDL_RenderClear(renderer);
+		SDL_RenderCopy(renderer, tex, NULL, NULL);
+		SDL_RenderPresent(renderer);
+		SDL_Delay(1000);
+	}
+
 	return 0;
 }
