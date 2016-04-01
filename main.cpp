@@ -12,9 +12,9 @@ int screenHeight;
 int main(int argc, char *argv[]) {
 	
 	lua_State* cfgState = luaL_newstate();
-    luaL_dofile( cfgState, "cfg.lua" );
-    luaL_openlibs( cfgState );
-    lua_pcall( cfgState, 0, 0, 0 );
+	luaL_dofile( cfgState, "cfg.lua" );
+	luaL_openlibs( cfgState );
+	lua_pcall( cfgState, 0, 0, 0 );
 	LuaRef t = getGlobal( cfgState, "cfg" );
 	screenWidth = t["SCREEN_WIDTH"];
 	screenHeight = t["SCREEN_HEIGHT"];

@@ -2,9 +2,9 @@
 
 Layer::Layer(const char* mapPath, int layerIndex) {
 	lua_State* layerState = luaL_newstate();
-    luaL_dofile( layerState, mapPath );
-    luaL_openlibs( layerState );
-    lua_pcall( layerState, 0, 0, 0 );
+	luaL_dofile( layerState, mapPath );
+	luaL_openlibs( layerState );
+	lua_pcall( layerState, 0, 0, 0 );
 	LuaRef _map = getGlobal( layerState, "map" );
 	LuaRef layers = _map["layers"];
 	LuaRef layer = layers[layerIndex];

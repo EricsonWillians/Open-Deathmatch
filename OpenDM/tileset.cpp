@@ -2,9 +2,9 @@
 
 Tileset::Tileset( const char* mapPath, int tilesetIndex ) {
 	lua_State* tilesetState = luaL_newstate();
-    luaL_dofile( tilesetState, mapPath );
-    luaL_openlibs( tilesetState );
-    lua_pcall( tilesetState, 0, 0, 0 );
+	luaL_dofile( tilesetState, mapPath );
+	luaL_openlibs( tilesetState );
+	lua_pcall( tilesetState, 0, 0, 0 );
 	LuaRef _map = getGlobal( tilesetState, "map" );
 	LuaRef tilesets = _map["tilesets"];
 	LuaRef tileset = tilesets[tilesetIndex];
