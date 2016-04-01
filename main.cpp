@@ -46,7 +46,7 @@ int main(int argc, char *argv[]) {
 	int indexCounter = 0;
 	for (int i = 0; i < 512; i += 32) {	
 		for (int j = 0; j < 512; j += 32) {
-			std::pair<int, int> p = std::pair<int, int>(i, j);
+			std::pair<int, int> p = std::pair<int, int>(j, i);
 			renderingArea.insert(std::pair<std::pair<int, int>, 
 				SDL_Texture*>(p, SDL_CreateTextureFromSurface(renderer, tiles[l.getData().at(indexCounter)])));
 			std::cout << l.getData().at(indexCounter) << '\n';
