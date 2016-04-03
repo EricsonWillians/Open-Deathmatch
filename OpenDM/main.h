@@ -1,3 +1,7 @@
+#pragma once
+#ifndef MAIN_H
+#define MAIN_H
+
 # include <iostream>
 # include <map>
 # include <vector>
@@ -10,3 +14,12 @@ extern "C" {
 }
 # include <LuaBridge/LuaBridge.h>
 using namespace luabridge;
+
+bool done = false;
+SDL_Window *window = nullptr;
+SDL_Renderer *renderer = nullptr;
+SDL_Event e;
+int screenWidth;
+int screenHeight;
+
+#endif

@@ -2,13 +2,6 @@
 #include "OpenDM\tileset.h"
 #include "OpenDM\layer.h"
 
-bool done = false;
-SDL_Window *window = nullptr;
-SDL_Renderer *renderer = nullptr;
-SDL_Event e;
-int screenWidth;
-int screenHeight;
-
 int main(int argc, char *argv[]) {
 	
 	lua_State* cfgState = luaL_newstate();
